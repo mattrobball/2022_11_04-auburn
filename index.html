@@ -42,91 +42,192 @@
 					<h4>Generation in prime characteristic</h4>
 					<p>
 						<small><a href="mattrobball.com">Matthew Robert Ballard</a> <br>
-							Derived Categories, Arithmetic, and 
-							Reconstruction in Algebraic Geometry <br> 
-							Banff International Research Station <br>
-							July 7 2022
+							Colloquium <br>
+							Auburn University <br>
+							November 4 2022
 						</small>
 					</p>
 					</section>
 					<section>
-						<img src="https://patlank.com/assets/profile.jpg" style="height:250px">
 						<p>Joint with <a href="patlank.com">Pat Lank</a><br>
 						Supported by the <a href="https://www.simonsfoundation.org">Simons Foundation</a></p>
 					</section>
 					<section>
 						<p>
-						Given an algebraic structure, one of the first steps to understanding 
-						it is to find generators. 
+						Let's take $k$ to be a field, eg $$\mathbb{R}, \mathbb{C}, \mathbb{F}_p$$
 						</p>
 					</section>
+					<section> 
+						Here is a more instructive example of a field to keep in mind.
+						Let $x$ be an indeterminant. Set 
+						$$
+						\mathbb{F}_p(x) := \left\lbrace \frac{p(x)}{q(x)} \mid p(x), q(x) \text{ polynomials} 
+						\right\rbrace
+						$$
+						So 
+						$$
+						p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0,~ a_i \in \mathbb{F}_p
+						$$
+					</section> 
+					<section> 
+						We all remember from linear algebra that a $k$-vector space is completely determined 
+						by a basis.<br> Precisely, any $v \in V$ can be written as 
+						$$
+						v = \sum a_i e_i 
+						$$
+						for unique $a_i \in k$ where $e_i$ are the basis vectors.  
+					</section> 
+					<section> 
+						In particular, if $V$ and $W$ are two vector spaces each possessing bases with 
+						the same number of elements we get an $k$-linear isomorphism 
+						$$
+						A : V \overset{\sim}{\to} W
+						$$
+					</section>
+					<section> 
+						A single number determines a (finite-dimensional) vector space. 
+					</section>
+
 					<section>
-						<p>
-						For a group $G$, we look for a set $ \lbrace g_a \mid a \in A \rbrace $
-						of elements such that for any $ x \in G $ we have
-						\[
-						x = g_{a_1}^{n_1} \cdots g_{a_l}^{n_l}
-						\]
-						for some $ n_i \in \mathbb{Z}$. 
-						</p>
+						<p>To classify $k$-vector spaces, we really just need to understand the 
+						vector space $k$. If $\dim V = n$, then 
+						$$
+						V = \underbrace{k \oplus \cdots \oplus k}_n
+						$$
+						We can build everything from $k$ up to sums (and isomorphisms).</p>
 					</section>
 					<section>
-						<p>
-						For a module $ M $ over a ring $ R $, we seek a surjection 
-						\[
-							R^{\oplus A} \to M 
-						\]
-						</p>
+						Let's enrich the structure a bit. Suppose instead of a single vector 
+						space $V$, we consider pairs $(V,T)$ where $T : V \to V$ is a linear 
+						map. <br><br> 
+						Is there is a single number that determines such pairs completely? <br><br> 
+						Are there basic building blocks? 
 					</section>
 					<section>
-						<p>
-						For a triangulated category $ T $, our generative operation is forming 
-						cones
-						\[
-							X \overset{f}{\to} Y \to C(f) \to X[1]
-						\]
-						</p>
+						There is natural universal object in algebra we can extract from such 
+						pairs: the polynomial ring $k[x]$
+						$$
+						k[x] = \lbrace a_n x^n + \cdots + a_0 \mid a_i \in k \rbrace
+						$$
 					</section>
 					<section>
-						<p>
-						<b> Definition </b>. We say that a (full) subcategory $ S $ generates 
-						$ T $ if the smallest subcategory of $ T $
-						<ul>
-							<li>closed under finite sums, shifts, and summands </li>
-							<li>closed under triangles and </li>
-							<li>containing $ S $ </li>
-						</ul> <br>
-						is $ T $ itself.
-						</p>
+						Why? 
 					</section>
 					<section>
-						<p> We write $ \langle S \rangle $ for this smallest subcategory in 
-						general and say 
-						\[
-							\langle S \rangle = T 
-						\]
-						if $ S $ generates.
-						</p>
+						Given a polynomial $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$, we 
+						can plug in $T$ to obtain a linear map
+						$$
+						a_n T^n + \cdots + a_0 I : V \to V
+						$$
 					</section>
 					<section>
-						<p> We have 
-						$ \langle R \rangle = \operatorname{perf} R
-						$, 
-						the subcategory of bounded complexes with finitely-generated projective 
-						components. 
-						</p>
-						<p> 
-						If we are Noetherian (and commutative), $ R $ generates $ D^b(\operatorname{mod} R) $
-						if and only if $ R $ is regular by Auslander-Buchsbaum.
-						</p>
+						Conversely, any module $M$ over $k[x]$ is a just a pair a $k$-vector space 
+						$M$ with an action of $x$ on $M$. <br><br>
+						In particular, we can take $k[x]$ itself. Multiplication by $x$ is a $k$-linear. 
+						<br><br>
+						The module $k[x]$ is our simplest building block.
 					</section>
 					<section>
-						<p><b>Challenge</b>: I hand you $ R $. You hand back a generator for 
-						$ D^b(\operatorname{mod} R) $. 
-						</p>
+						But not everything is a sum of copies of $k[x]$'s. 
+					</section> 
+					<section>
+			 			Suppose that $p(T)$ is the minimal polynomial of $$T: V \to V.$$ Then we know that 
+						multiplication by $p(x)$ is identically $0$. <br><br>
+
+						Thus, the action of $k[x]$ factors through the quotient 
+						$$
+						k[x] \to k[x]/(p(x))
+						$$
+						where we set polynomials of the form $q(x)p(x) = 0$. 
+					</section>
+					<section> 
+						But we still get our classification.
 					</section>
 					<section>
-						<p>Some examples to meditate upon: 
+					Any $(V,T)$ is isomorphic to 
+						$$
+						k[x]^{\oplus a} \oplus \bigoplus \left(\frac{k[x]}{(q_i(x)^{e_i})}\right)^{\oplus b_i} 
+						$$
+						where $q_i(x)$ are polynomials that cannot be factored. 
+					</section> 
+					<section>
+						Perhaps we need to allow for more building blocks?
+					</section> 
+					<section> 
+						No!!  <br><br> We need more ways to build!
+					</section>
+					<section> 
+						For example, each factor of the form $k[x]/(p(x))$ can be understood in terms of a 
+						linear map between $k[x]$ and itself:
+						$$
+						k[x] \overset{p(x)}{\to} k[x]
+						$$
+						The cokernel of multiplication by $p(x)$ is exactly $k[x]/(p(x))$ and there is 
+						no kernel.
+					</section>
+					<section> 
+						We express this by decorating the map 
+						$$
+						0 \to k[x] \overset{p(x)}{\to} k[x] \to k[x]/(p(x)) \to 0 
+						$$
+						Then composing any pair of composable maps in the diagram will yield the zero 
+						map.
+					</section>
+					<section>
+						Revisiting our classification: any finitely-generated $k[x]$-module is the cokernel of 
+						a $k[x]$-linear map 
+						$$
+						k[x]^{\oplus a} \overset{M}{\to} k[x]^{\oplus b}
+						$$
+						Here $M$ can be written a matrix with entries in $k[x]$. 
+					</section> 
+					<section> 
+						How about two commuting linear endomorphisms of $V$? 
+					</section>
+					<section> 
+						We have to add one more indeterminant to our polynomial ring $k[x,y]$ and we 
+						have to allow our exact complexes to be one arrow longer: 
+						$$
+						0 \to F_{-2} \overset{d_{-1}}{\to} F_{-1} \overset{d_0}{\to} F_0 \overset{\phi}{\to} M \to 0 
+						$$
+						where $F_i = k[x]^{n_i}$ and 
+						$$ 
+						\phi \circ d_0 = d_0 \circ d_{-1} = d_{-1} \circ d_0 = 0
+						$$
+						And moreover $\operatorname{ker} d_i = \operatorname{im} d_{i-1}$.
+					</section>
+					<section> 
+						More generally, any finitely-generated $k[x_1,\ldots,x_n]$-module $M$ fits into an 
+						exact complex of the form 
+						$$
+						0 \to F_{-n} \to \cdots \to F_{-1} \to F_0 \to M \to 0 
+						$$
+					</section>
+					<section> 
+						The structure of these resolutions can be very complex but they are ultimately a 
+						finite amount of linear algebraic data. 
+					</section> 
+					<section> 
+						Suppose instead that we only cared about $$T : V \to V$$ satisfying $T^2 = 0$. 
+						<br><br> So 
+						$k[x]/(x^2)$ are our basic building blocks with which we want to understand all 
+						other modules. <br><br> 
+						In particular, let's try to understand the module $k$ where $x$ acts by $0$. 
+					</section> 
+					<section> 
+						We could seemingly start with what we know
+						$$
+						0 \to k[x] \overset{x}{\to} k[x] \to k \to 0 
+						$$
+						and just mod out by $x^2$ everywhere 
+						$$
+						0 \to \frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)} \to k \to 0 
+						$$
+						but something has gone wrong. 
+					</section> 
+
+
+					<section>
 						<ul>
 							<li> $ k[x]/(x^2) $ </li>
 							<li> $ k[x,y,z]/(xy,xz) $ </li>
