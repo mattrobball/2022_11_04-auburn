@@ -317,61 +317,39 @@
 					Can we do better with $R^{(p)}$? 
 				</section> 
 				<section>
-					<b>Theorem</b>(B.-Lank). Yes. <br><br>
+					<b>Theorem</b>(B.-Lank). For $F$-finite rings, yes. <br><br>
 					Independently, Iyengar-Mukhopadhyay-Pollitz also. 
 				</section>
 				<section>
-					<p> Two natural questions: 
-					<ol>
-						<li> For what $ X $ does $ F_\ast^e \mathcal O_X $ generate? </li>
-						<li> Does $ F_\ast^e \operatorname{perf} X $ generate? </li>
-					</ol>
-					</p>
+					Let's look at our problematic example: $$\mathbb{F}_p[x]/(x^2)$$
+					Then 
+					$$
+					\mathbb{F}_p[x]/(x^2)^{(p)} \cong \mathbb{F}_p \oplus \mathbb{F}_p x
+					$$
+					and $x$ acting via multiplication of $x^p$ acts by $0$. So the above 
+					is an isomorphism of modules.
 				</section>
 				<section>
-					<p> Regarding Question 1, we have a guess. 
-					</p>
-					<p><b>Conjecture</b>: For $ X $ smooth and projective, $F_\ast^e \mathcal O_X $ 
-					generates if and only if $ D^b(\operatorname{coh} X) $ possesses a full 
-					exceptional collection.
-					</p>
+					We've got $\mathbb{F}_p$ as a summand of $R^{(p)}$ already. 
 				</section>
 				<section>
-					<p> Question 2 has an answer. 
-					</p>
-					<p><b>Theorem</b>: (MRB-Lank) For $ e \gg 0 $, $ F_\ast^e \operatorname{perf} X $ 
-					generates $D^b(\operatorname{coh} X) $. 
-					</p>
+					In general, $R^{(p^e)}$ generates the derived category $D^b(\operatorname{mod} R)$ 
+					for any $F$-finite Noetherian ring $R$. <br><br>
+					In other words, building finite complexes out of $R^{(p^e)}$ gives all modules.
+					(Indeed all complexes.) Moreover, there is a <i>uniform</i> bound on the length 
+					of the complex necessary.
 				</section>
 				<section>
-					<p> This has the marvelous by-product that $ F_\ast^e $ converts weak generators into 
-					strong ones. <br> 
-
-					If $ X $ is not regular, then any perfect generator $ G $ takes an unbounded number of 
-					cones to generate all of $ \operatorname{perf} X $.  <br>
-
-					However, $ F_\ast^e G $ will only need a uniformly bounded number of cones to generate
-					$ D^b(\operatorname{coh} X )$. 
-					</p>
+					Using $R^{(p^e)}$ as our basic building blocks, everything is build from a finite 
+					amount of linear algebraic data, restoring the nice situation for regular rings. 
 				</section>
 				<section>
-					<p><b>Corollary</b>: If $ \mathcal L $ is a very ample line bundle on $ X $, then 
-					\[
-					\bigoplus_{i=0}^{\dim X} F_\ast^e \mathcal L^i
-					\]
-					is a strong generator for $ D^b(\operatorname{coh} X )$. 
-					</p>
+					More generally, high enough Frobenius pushforwards of bounded complexes of 
+					finite rank vector bundles generate $D^b(\operatorname{coh} X)$ for an $F$-finite 
+					Noetherian scheme.
 				</section>
 				<section>
-					<p>Relations to other works: 
-					<ul>
-						<li>One can find generators of $D^b(\operatorname{coh} X) $ pretty generally:
-						Rouquier, Iyengar-Takahashi, Neeman,... but not as constructively.</li>
-						<li> Independently Iyengar-Pollitz-Mukhopadhyay recently announced the affine case. 
-						They also say that you can take $e =1 $ for complete intersections. </li>
-					</ul>
-					</p>
-				</section>
+					Thanks for your attention.
 				</section>
 				<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
 					<p> AMS Mathematical Research Community <br> 
