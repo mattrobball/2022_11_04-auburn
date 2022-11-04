@@ -1,31 +1,20 @@
 ## Generation in prime characteristic 
 
-Generators are essential to understand any algebraic structure and triangulated 
-categories are no different. In this half(?) of the talk, we discuss joint work
-with [Pat Lank](patlank.com) where we show that higher iterated pushforwards of 
-the category perfect complexes under Frobenius generates the bounded derived 
-category of a Noetherian F-finite scheme over a field of prime characteristic. 
+Finite dimensional vector spaces have a simple classification mechanism - 
+compute the dimension. Vector spaces with additional operators have 
+more complicated classification structure but it can still be done via 
+finite amount of linear algebraic data. If the operators satisfy identities, 
+then we can no longer guarantee this. 
 
-## A GUT for flops and derived categories
+We discussed this and how using Frobenius pushforwards remedies the situation 
+in finite characteristic. 
 
-We discuss a general proposal (or grand unified theory) for associating 
-integral kernels to flips due to myself, Colin Diemer, and 
-[David Favero](https://sites.ualberta.ca/~favero/). 
-
-We focus on recent joint work with 
-[Nitin Chidambaram](https://guests.mpim-bonn.mpg.de/kcnitin/") 
-and David Favero where this construction is used to obtain Fourier-Mukai 
-kernels for stratified Mukai flops. 
 
 ---
 
 ### About this setup
 
-This is a talk I gave at the Banff International Research Station for the workshop
-Derived Categories, Arithmetic, and Reconstruction in Algebraic Geometry. 
-
-As I couldn't choose a single topic, I decided to try a double feature. Perhaps 
-it was doubly opaque. 
+This is a colloquium talk I gave at Auburn. 
 
 The presentation uses the [Reveal.js](https://revealjs.com/) framework, the 
 [KaTeX](katex.org) engine to render math, and is hosted 
