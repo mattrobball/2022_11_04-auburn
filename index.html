@@ -38,474 +38,357 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<section>
-					<h4>Generation in prime characteristic</h4>
-					<p>
-						<small><a href="mattrobball.com">Matthew Robert Ballard</a> <br>
-							Colloquium <br>
-							Auburn University <br>
-							November 4 2022
-						</small>
-					</p>
-					</section>
-					<section>
-						<p>Joint with <a href="patlank.com">Pat Lank</a><br>
-						Supported by the <a href="https://www.simonsfoundation.org">Simons Foundation</a></p>
-					</section>
-					<section>
-						<p>
-						Let's take $k$ to be a field, eg $$\mathbb{R}, \mathbb{C}, \mathbb{F}_p$$
-						</p>
-					</section>
-					<section> 
-						Here is a more instructive example of a field to keep in mind.
-						Let $x$ be an indeterminant. Set 
-						$$
-						\mathbb{F}_p(x) := \left\lbrace \frac{p(x)}{q(x)} \mid p(x), q(x) \text{ polynomials} 
-						\right\rbrace
-						$$
-						So 
-						$$
-						p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0,~ a_i \in \mathbb{F}_p
-						$$
-					</section> 
-					<section> 
-						We all remember from linear algebra that a $k$-vector space is completely determined 
-						by a basis.<br> Precisely, any $v \in V$ can be written as 
-						$$
-						v = \sum a_i e_i 
-						$$
-						for unique $a_i \in k$ where $e_i$ are the basis vectors.  
-					</section> 
-					<section> 
-						In particular, if $V$ and $W$ are two vector spaces each possessing bases with 
-						the same number of elements we get an $k$-linear isomorphism 
-						$$
-						A : V \overset{\sim}{\to} W
-						$$
-					</section>
-					<section> 
-						A single number determines a (finite-dimensional) vector space. 
-					</section>
-
-					<section>
-						<p>To classify $k$-vector spaces, we really just need to understand the 
-						vector space $k$. If $\dim V = n$, then 
-						$$
-						V = \underbrace{k \oplus \cdots \oplus k}_n
-						$$
-						We can build everything from $k$ up to sums (and isomorphisms).</p>
-					</section>
-					<section>
-						Let's enrich the structure a bit. Suppose instead of a single vector 
-						space $V$, we consider pairs $(V,T)$ where $T : V \to V$ is a linear 
-						map. <br><br> 
-						Is there is a single number that determines such pairs completely? <br><br> 
-						Are there basic building blocks? 
-					</section>
-					<section>
-						There is natural universal object in algebra we can extract from such 
-						pairs: the polynomial ring $k[x]$
-						$$
-						k[x] = \lbrace a_n x^n + \cdots + a_0 \mid a_i \in k \rbrace
-						$$
-					</section>
-					<section>
-						Why? 
-					</section>
-					<section>
-						Given a polynomial $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$, we 
-						can plug in $T$ to obtain a linear map
-						$$
-						a_n T^n + \cdots + a_0 I : V \to V
-						$$
-					</section>
-					<section>
-						Conversely, any module $M$ over $k[x]$ is a just a pair a $k$-vector space 
-						$M$ with an action of $x$ on $M$. <br><br>
-						In particular, we can take $k[x]$ itself. Multiplication by $x$ is a $k$-linear. 
-						<br><br>
-						The module $k[x]$ is our simplest building block.
-					</section>
-					<section>
-						But not everything is a sum of copies of $k[x]$'s. 
-					</section> 
-					<section>
-			 			Suppose that $p(T)$ is the minimal polynomial of $$T: V \to V.$$ Then we know that 
-						multiplication by $p(x)$ is identically $0$. <br><br>
-
-						Thus, the action of $k[x]$ factors through the quotient 
-						$$
-						k[x] \to k[x]/(p(x))
-						$$
-						where we set polynomials of the form $q(x)p(x) = 0$. 
-					</section>
-					<section> 
-						But we still get our classification.
-					</section>
-					<section>
-					Any $(V,T)$ is isomorphic to 
-						$$
-						k[x]^{\oplus a} \oplus \bigoplus \left(\frac{k[x]}{(q_i(x)^{e_i})}\right)^{\oplus b_i} 
-						$$
-						where $q_i(x)$ are polynomials that cannot be factored. 
-					</section> 
-					<section>
-						Perhaps we need to allow for more building blocks?
-					</section> 
-					<section> 
-						No!!  <br><br> We need more ways to build!
-					</section>
-					<section> 
-						For example, each factor of the form $k[x]/(p(x))$ can be understood in terms of a 
-						linear map between $k[x]$ and itself:
-						$$
-						k[x] \overset{p(x)}{\to} k[x]
-						$$
-						The cokernel of multiplication by $p(x)$ is exactly $k[x]/(p(x))$ and there is 
-						no kernel.
-					</section>
-					<section> 
-						We express this by decorating the map 
-						$$
-						0 \to k[x] \overset{p(x)}{\to} k[x] \to k[x]/(p(x)) \to 0 
-						$$
-						Then composing any pair of composable maps in the diagram will yield the zero 
-						map.
-					</section>
-					<section>
-						Revisiting our classification: any finitely-generated $k[x]$-module is the cokernel of 
-						a $k[x]$-linear map 
-						$$
-						k[x]^{\oplus a} \overset{M}{\to} k[x]^{\oplus b}
-						$$
-						Here $M$ can be written a matrix with entries in $k[x]$. 
-					</section> 
-					<section> 
-						How about two commuting linear endomorphisms of $V$? 
-					</section>
-					<section> 
-						We have to add one more indeterminant to our polynomial ring $k[x,y]$ and we 
-						have to allow our exact complexes to be one arrow longer: 
-						$$
-						0 \to F_{-2} \overset{d_{-1}}{\to} F_{-1} \overset{d_0}{\to} F_0 \overset{\phi}{\to} M \to 0 
-						$$
-						where $F_i = k[x]^{n_i}$ and 
-						$$ 
-						\phi \circ d_0 = d_0 \circ d_{-1} = d_{-1} \circ d_0 = 0
-						$$
-						And moreover $\operatorname{ker} d_i = \operatorname{im} d_{i-1}$.
-					</section>
-					<section> 
-						More generally, any finitely-generated $k[x_1,\ldots,x_n]$-module $M$ fits into an 
-						exact complex of the form 
-						$$
-						0 \to F_{-n} \to \cdots \to F_{-1} \to F_0 \to M \to 0 
-						$$
-					</section>
-					<section> 
-						The structure of these resolutions can be very complex but they are ultimately a 
-						finite amount of linear algebraic data. 
-					</section> 
-					<section> 
-						Suppose instead that we only cared about $$T : V \to V$$ satisfying $T^2 = 0$. 
-						<br><br> So 
-						$k[x]/(x^2)$ are our basic building blocks with which we want to understand all 
-						other modules. <br><br> 
-						In particular, let's try to understand the module $k$ where $x$ acts by $0$. 
-					</section> 
-					<section> 
-						We could seemingly start with what we know
-						$$
-						0 \to k[x] \overset{x}{\to} k[x] \to k \to 0 
-						$$
-						and just mod out by $x^2$ everywhere 
-						$$
-						0 \to \frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)} \to k \to 0 
-						$$
-						but something has gone wrong. 
-					</section> 
-
-
-					<section>
-						<ul>
-							<li> $ k[x]/(x^2) $ </li>
-							<li> $ k[x,y,z]/(xy,xz) $ </li>
-						</p>
-					</section>
-					<section>
-						<p> Assume that $ R $ lives over a field $ k $ with $\operatorname{char} k > 0 $. </p>
-						<p><b>Corollary</b>: If $ R $ is Noetherian and $ F_\ast R $ is 
-						finitely-generated, then for $ e \gg 0 $, $F_\ast^e R$ generates 
-						$ D^b(\operatorname{mod} R )$. 
-						</p>
-					</section>
-					<section>
-						<p> This doesn't work globally. <br>
-						If $ C $ is smooth and proper with $ g(C) > 0 $, then $F_\ast^e \mathcal O_C $ 
-						does not generate for any $ e$. 
-						</p>
-					</section>
-					<section>
-						<p> Two natural questions: 
-						<ol>
-							<li> For what $ X $ does $ F_\ast^e \mathcal O_X $ generate? </li>
-							<li> Does $ F_\ast^e \operatorname{perf} X $ generate? </li>
-						</ol>
-						</p>
-					</section>
-					<section>
-						<p> Regarding Question 1, we have a guess. 
-						</p>
-						<p><b>Conjecture</b>: For $ X $ smooth and projective, $F_\ast^e \mathcal O_X $ 
-						generates if and only if $ D^b(\operatorname{coh} X) $ possesses a full 
-						exceptional collection.
-						</p>
-					</section>
-					<section>
-						<p> Question 2 has an answer. 
-						</p>
-						<p><b>Theorem</b>: (MRB-Lank) For $ e \gg 0 $, $ F_\ast^e \operatorname{perf} X $ 
-						generates $D^b(\operatorname{coh} X) $. 
-						</p>
-					</section>
-					<section>
-						<p> This has the marvelous by-product that $ F_\ast^e $ converts weak generators into 
-						strong ones. <br> 
-
-						If $ X $ is not regular, then any perfect generator $ G $ takes an unbounded number of 
-						cones to generate all of $ \operatorname{perf} X $.  <br>
-
-						However, $ F_\ast^e G $ will only need a uniformly bounded number of cones to generate
-						$ D^b(\operatorname{coh} X )$. 
-						</p>
-					</section>
-					<section>
-						<p><b>Corollary</b>: If $ \mathcal L $ is a very ample line bundle on $ X $, then 
-						\[
-						\bigoplus_{i=0}^{\dim X} F_\ast^e \mathcal L^i
-						\]
-						is a strong generator for $ D^b(\operatorname{coh} X )$. 
-						</p>
-					</section>
-					<section>
-						<p>Relations to other works: 
-						<ul>
-							<li>One can find generators of $D^b(\operatorname{coh} X) $ pretty generally:
-							Rouquier, Iyengar-Takahashi, Neeman,... but not as constructively.</li>
-							<li> Independently Iyengar-Pollitz-Mukhopadhyay recently announced the affine case. 
-							They also say that you can take $e =1 $ for complete intersections. </li>
-						</ul>
-						</p>
-					</section>
-
+				<h4>Generation in prime characteristic</h4>
+				<p>
+					<small><a href="mattrobball.com">Matthew Robert Ballard</a> <br>
+						Colloquium <br>
+						Auburn University <br>
+						November 4 2022
+					</small>
+				</p>
 				</section>
 				<section>
-					<section>
-					<h4>A GUT for flops and derived categories</h4>
+					<p>Joint with <a href="patlank.com">Pat Lank</a><br>
+					Supported by the <a href="https://www.simonsfoundation.org">Simons Foundation</a></p>
+				</section>
+				<section>
 					<p>
-						<small><a href="mattrobball.com">Matthew Robert Ballard</a> <br>
-							Derived Categories, Arithmetic, and Reconstruction in Algebraic Geometry<br>
-							Banff International Research Station <br>
-							July 7 2022
-						</small>
+					Let's take $k$ to be a field, eg $$\mathbb{R}, \mathbb{C}, \mathbb{F}_p$$
 					</p>
-					</section>
-					<section>
-						<img src="https://guests.mpim-bonn.mpg.de/kcnitin/img/mockup/pic.jpg" style="height:250px"
-							  alt="Picture of Nitin Chidambaram"> &nbsp &nbsp
-						<img src="https://sites.ualberta.ca/~favero/images/Home%20Page%20Photo.png" 
-							  style="height:250px" alt="Picture of David Favero">
-						<p> Joint with <a href="https://guests.mpim-bonn.mpg.de/kcnitin/">Nitin Chidambaram</a> 
-						and <a href="https://sites.ualberta.ca/~favero/">David Favero</a>.<br>
-						Supported by the <a href="https://www.simonsfoundation.org">Simons Foundation</a>
-						and <a href="https://www.nserc-crsng.gc.ca">NSERC</a>.</p>
-						</p>
-					</section>
-					<section>
-						<p>Recall that a flip relative to a divisor $ D $ is a diagram 
-						\[
-						\begin{CD}
-						@. X \\
-						@. @VV f V \\
-						X^+ @>> f^+ > Y
-						\end{CD}
-						\]
-						inducing an isomorphisms in codimension $\geq 1$ and such that $-D$ is $f$-ample 
-						and $D$ is $f^+$-ample.
-						</p>
-						<p> A flip is a flop if $f^\ast K_X = (f^+)^\ast K_{X^+}$. 
-					</section>
-					<section>
-						<p>
-						Geometric Invariant Theory provides a natural source of flips. For example, given 
-						a $\mathbb{Z}$-graded ring $R$ we get a flip (under some mild assumptions) where 
-						\[
-						X = \operatorname{Proj}~ \bigoplus_{n \leq 0} R_n \\
-						X^+ = \operatorname{Proj}~ \bigoplus_{n \geq 0} R_n \\
-						Y = \operatorname{Spec} R_0
-						\]
-						</p>
-					</section> 
-					<section>
-						<p> Groups with higher rank often provide more intricate examples. For example, 
-						let $k$ be a field and $V,W$ be finite-dimensional vector spaces over $k$ and 
-						assume that $\dim V < \dim W$.</p>
-					</section>
-					<section>
-						<p>
-						Set $ G = \operatorname{Aut}(V) $. 
-						For $A \in \operatorname{Hom}(W,V)$ and $B \in \operatorname{Hom}(V,W)$ set
-						\[
-						       Z = \lbrace (A,B) \mid AB = 0 \rbrace
-						\]
-						We get two GIT quotients $Z^{ss}(+)/G$ and $Z^{ss}(-)/G$ related by a flop.
-						</p>
-					</section>
-					<section>
-						<p>
-						For $2 \leq \dim V \leq \dim W -2 $, the two GIT quotients of $Z$ give a 
-						stratified Mukai flop.
-						</p>
-					</section>
-					<section>
-						<p> <b>Conjecture</b>: (Bondal-Orlov) Two smooth projective varieties related by a 
-						flop are derived equivalent. 
-						</p>
-						<p> This was amplified by Kawamata to a pair of K-equivalent varieties. 
-						</p> 
-					</section>
-					<section>
-						<p> For a brief moment in time, it was hoped that the structure of sheaf of the 
-						fiber product 
-						\[
-						\mathcal O_{X \times_Y X^+}
-						\]
-						furnished a Fourier-Mukai kernel. 
-						</p>
-					</section>
-					<section>
-						<p> Kawamata/Namikawa: For stratified Mukai flops with $\dim V=2$, it is not. &#128148;
-						</p>
-					</section>
-					<section>
-						<p> However, Cautis-Kamnitzer-Licata produced Fourier-Mukai kernels for stratified 
-						Mukai flops. 
-						</p>
-					</section>
-					<section>
-						<p> MRB-Diemer-Favero described a procedure to associate an integral kernel to 
-						any affine GIT problem given a linear algebraic monoid $M$ with $M^\times = G $.
-						</p>
-					</section>
-					<section>
-						<p> If $G$ is acting on $Z$ via $\sigma : G \times Z \to Z $, then let 
-						\[
-						Q = \operatorname{im}\left(k[Z \times Z \times M] \overset{\phi}{\to} k[Z \times G]\right)
-						\]
-						where 
-						\[
-						r \otimes r^\prime \otimes f \overset{\phi}{\mapsto} r \sigma^\ast(r') f
-						\]
-						</p>
-					</section>
-					<section>
-						<p> By restricting $Q$ to $Z^{ss}(+) \times Z^{ss}(-)$, we get a integral kernel
-						\[
-						P \in D(\operatorname{Qcoh} Z^{ss}(+)/G \times Z^{ss}(-)/G) 
-						\]
-						</p>
-					</section>
-					<section>
-						<p> <b>Question</b>: When is $\Phi_P$ fully-faithful? </p>
-					</section>
-					<section>
-						<p> For example, if $\dim V = 1$ and $\dim W = n+1$, then we get the graded ring 
-						\[
-						R = \frac{k[x_0,\ldots,x_n,y_0,\ldots,y_n]}{(x_0y_0+\cdots+x_ny_n)}
-						\]
-						the associate flop is called a Mukai flop and $P$ is graph of the induced birational 
-						map -- which is not a FM kernel. 
-						</p>
-					</section>
-					<section>
-						<p> Fix: one needs to derive $R$ </p>
-						<p> Then we get $\mathcal O_{X \times_Y X^+}$ which is FM here. 
-					</section>
-					<section>
-						<p> For general stratified Mukai flop, $R = k[A,B]/(AB) $, we couldn't get our 
-						hands on the representation theory of $Q_{der}$ so we looked at its relative Koszul dual.
-						</p>
-						<p> 
-						\[
-						S = k[A,B,T]
-						\]
-						for $T \in \operatorname{End}(V)$. 
-						</p>
-					</section>
-					<section>
-						<p>
-						An explicit presentation for $Q$ is </p>
-						<p>
-						\[
-						\scriptsize Q = \frac{k[A_L,B_L,T_L,A_R,B_R,T_R,C]}
-						{(CA_L-A_R,B_L-B_RC,CT_L-T_RC,c_i(T_L)-c_i(T_R))}
-						\]</p>
-						<p>
-						where $ C \in \operatorname{End}(V) $ and $c_i$ are the coefficients of the 
-						characteristic polynomial. 
-						</p>
-					</section>
-					<section>
-						<p> <b>Theorem</b>:(MRB-Chidambaram-Favero) <br> For $\dim V = 2$, $P$ is FM for the 
-						flop associated to $S$. 
-						</p>
-					</section>
-					<section>
-						<p> <b>Corollary</b>: The Koszul dual to $P$ is an FM kernel for the stratified 
-						Mukai flop. 
-						</p>
-						<p> We know that $\mathcal H^0P^!$ is a CKL kernel. </p>
-					</section>
-					<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
-						<p> AMS Mathematical Research Community <br> 
-						<a href="https://www.ams.org/programs/research-communities/2023MRC-DerivedCategories"> 
-							Derived Categories, Arithmetic, and Geometry</a> <br>
-						June 4-10 2023
-						</p>
-					</section>
-					<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
-						<h4 style="color:black"> Organizers </h4>
-						<a href="http://mattrobball.com">
-							<img src="https://www.matthewrobertballard.com/assets/img/prof_pic.jpg" 
-							     style="height:200px"></a>
-						<a href="https://www.sfu.ca/~khonigs/">
-							<img src="https://www.sfu.ca/content/sfu/math/people/faculty/khonigs.img.-838256229.png"
-							     style="height:200px"></a>
-						<a href="http://dkrashen.org">
-							<img src="https://github.com/dkrashen/dkrashen.github.io/blob/master/images/maxpicofme.jpg?raw=true" 
-								  style="height:200px" ></a>
-						<a href="http://alicialamarche.com">
-							<img src="http://alicialamarche.com/assets/img/face.JPG" style="height:200px"></a>
-						<a href="https://www.imo.universite-paris-saclay.fr/~macri">
-							<img src="https://www.imo.universite-paris-saclay.fr/~macri/emolo.jpg" 
-							     style="height:200px"></a>
-						<br>
-						<h4> Mentors </h4>
-						<a href="http://pbelmans.ncag.info">
-							<img src="https://pbelmans.ncag.info/assets/photo.jpg" style="height:200px"></a>
-						<a href="<http://www-personal.umich.edu/~arper/"> 
-							<img src="http://www-personal.umich.edu/~arper/arp.jpg" style="height:200px"></a>
-						<a href="http://www.mat.unimi.it/users/pertusi/">
-							<img src="assets/images/pertusi.jpg" style="height:200px"></a>
-						<a href="https://pcwww.liv.ac.uk/~arizzard/">
-							<img src="https://www.liverpool.ac.uk/media/livacuk/maths/images/staffimages/rizzardo.jpg" style="height:200px"></a>
-						<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Question-mark-face.jpg/512px-Question-mark-face.jpg"  -->
-						<!--      style="height:200px"> -->
-					</section>
-					<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
-						<p> Applications open soon!!</a>
-					</section>
+				</section>
+				<section> 
+					Here is a more instructive example of a field to keep in mind.
+					Let $x$ be an indeterminant. Set 
+					$$
+					\mathbb{F}_p(x) := \left\lbrace \frac{p(x)}{q(x)} \mid p(x), q(x) \text{ polynomials} 
+					\right\rbrace
+					$$
+					So 
+					$$
+					p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0,~ a_i \in \mathbb{F}_p
+					$$
+				</section> 
+				<section> 
+					We all remember from linear algebra that a $k$-vector space is completely determined 
+					by a basis.<br> Precisely, any $v \in V$ can be written as 
+					$$
+					v = \sum a_i e_i 
+					$$
+					for unique $a_i \in k$ where $e_i$ are the basis vectors.  
+				</section> 
+				<section> 
+					In particular, if $V$ and $W$ are two vector spaces each possessing bases with 
+					the same number of elements we get an $k$-linear isomorphism 
+					$$
+					A : V \overset{\sim}{\to} W
+					$$
+				</section>
+				<section> 
+					A single number determines a (finite-dimensional) vector space. 
+				</section>
+
+				<section>
+					<p>To classify $k$-vector spaces, we really just need to understand the 
+					vector space $k$. If $\dim V = n$, then 
+					$$
+					V = \underbrace{k \oplus \cdots \oplus k}_n
+					$$
+					We can build everything from $k$ up to sums (and isomorphisms).</p>
+				</section>
+				<section>
+					Let's enrich the structure a bit. Suppose instead of a single vector 
+					space $V$, we consider pairs $(V,T)$ where $T : V \to V$ is a linear 
+					map. <br><br> 
+					Is there is a single number that determines such pairs completely? <br><br> 
+					Are there basic building blocks? 
+				</section>
+				<section>
+					There is natural universal object in algebra we can extract from such 
+					pairs: the polynomial ring $k[x]$
+					$$
+					k[x] = \lbrace a_n x^n + \cdots + a_0 \mid a_i \in k \rbrace
+					$$
+				</section>
+				<section>
+					Why? 
+				</section>
+				<section>
+					Given a polynomial $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$, we 
+					can plug in $T$ to obtain a linear map
+					$$
+					a_n T^n + \cdots + a_0 I : V \to V
+					$$
+				</section>
+				<section>
+					Conversely, any module $M$ over $k[x]$ is a just a pair a $k$-vector space 
+					$M$ with an action of $x$ on $M$. <br><br>
+					In particular, we can take $k[x]$ itself. Multiplication by $x$ is a $k$-linear. 
+					<br><br>
+					The module $k[x]$ is our simplest building block.
+				</section>
+				<section>
+					But not everything is a sum of copies of $k[x]$'s. 
+				</section> 
+				<section>
+					Suppose that $p(T)$ is the minimal polynomial of $$T: V \to V.$$ Then we know that 
+					multiplication by $p(x)$ is identically $0$. <br><br>
+
+					Thus, the action of $k[x]$ factors through the quotient 
+					$$
+					k[x] \to k[x]/(p(x))
+					$$
+					where we set polynomials of the form $q(x)p(x) = 0$. 
+				</section>
+				<section> 
+					But we still get our classification.
+				</section>
+				<section>
+				Any $(V,T)$ is isomorphic to 
+					$$
+					k[x]^{\oplus a} \oplus \bigoplus \left(\frac{k[x]}{(q_i(x)^{e_i})}\right)^{\oplus b_i} 
+					$$
+					where $q_i(x)$ are polynomials that cannot be factored. 
+				</section> 
+				<section>
+					Perhaps we need to allow for more building blocks?
+				</section> 
+				<section> 
+					No!!  <br><br> We need more ways to build!
+				</section>
+				<section> 
+					For example, each factor of the form $k[x]/(p(x))$ can be understood in terms of a 
+					linear map between $k[x]$ and itself:
+					$$
+					k[x] \overset{p(x)}{\to} k[x]
+					$$
+					The cokernel of multiplication by $p(x)$ is exactly $k[x]/(p(x))$ and there is 
+					no kernel.
+				</section>
+				<section> 
+					We express this by decorating the map 
+					$$
+					0 \to k[x] \overset{p(x)}{\to} k[x] \to k[x]/(p(x)) \to 0 
+					$$
+					Then composing any pair of composable maps in the diagram will yield the zero 
+					map.
+				</section>
+				<section>
+					Revisiting our classification: any finitely-generated $k[x]$-module is the cokernel of 
+					a $k[x]$-linear map 
+					$$
+					k[x]^{\oplus a} \overset{M}{\to} k[x]^{\oplus b}
+					$$
+					Here $M$ can be written a matrix with entries in $k[x]$. 
+				</section> 
+				<section> 
+					How about two commuting linear endomorphisms of $V$? 
+				</section>
+				<section> 
+					We have to add one more indeterminant to our polynomial ring $k[x,y]$ and we 
+					have to allow our exact complexes to be one arrow longer: 
+					$$
+					0 \to F_{-2} \overset{d_{-1}}{\to} F_{-1} \overset{d_0}{\to} F_0 \overset{\phi}{\to} M \to 0 
+					$$
+					where $F_i = k[x]^{n_i}$ and 
+					$$ 
+					\phi \circ d_0 = d_0 \circ d_{-1} = d_{-1} \circ d_0 = 0
+					$$
+					And moreover $\operatorname{ker} d_i = \operatorname{im} d_{i-1}$.
+				</section>
+				<section> 
+					<b>Theorem</b>(Hilbert). More generally, any finitely-generated $k[x_1,\ldots,x_n]$-module $M$ fits into an 
+					exact complex of the form 
+					$$
+					0 \to F_{-n} \to \cdots \to F_{-1} \to F_0 \to M \to 0 
+					$$
+				</section>
+				<section> 
+					The structure of these resolutions can be very complex but they are ultimately a 
+					finite amount of linear algebraic data. 
+				</section> 
+				<section> 
+					Suppose instead that we only cared about $$T : V \to V$$ satisfying $T^2 = 0$. 
+					<br><br> So 
+					$k[x]/(x^2)$ are our basic building blocks with which we want to understand all 
+					other modules. <br><br> 
+					In particular, let's try to understand the module $k$ where $x$ acts by $0$. 
+				</section> 
+				<section> 
+					We could seemingly start with what we know
+					$$
+					0 \to k[x] \overset{x}{\to} k[x] \to k \to 0 
+					$$
+					and just mod out by $x^2$ everywhere 
+					$$
+					0 \to \frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)} \to k \to 0 
+					$$
+					but something has gone wrong. 
+				</section> 
+				<section> 
+					We have lost exactness. The map 
+					$$
+					\frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)}
+					$$
+					is no longer injective. <br><br> 
+
+					Can we fix it? 
+				</section>
+				<section> 
+					The kernel is $kx \subset k[x]/(x^2)$. So we need surject onto that 
+					$$
+					\frac{k[x]}{(x^2)} \overset{x}{\to}\frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)}
+					$$
+				</section>
+				<section> 
+					There is still kernel of this map. 
+					The kernel is $kx \subset k[x]/(x^2)$. So we need surject onto that 
+					$$
+					\frac{k[x]}{(x^2)} \overset{x}{\to}\frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)}
+					$$
+				</section>
+				<section> 
+					There is still kernel of this map. 
+					The kernel is $kx \subset k[x]/(x^2)$. So we need surject onto that 
+					$$
+					\frac{k[x]}{(x^2)} \overset{x}{\to}\frac{k[x]}{(x^2)} \overset{x}{\to} \frac{k[x]}{(x^2)}
+					$$
+				</section>
+				<section> 
+					Uh oh. 
+				</section> 
+				<section> 
+					There is no finite resolution of $k$ as $k[x]/(x^2)$-module. 
+				</section>
+				<section> 
+					Things get much worse. <br><br> Try taking the resolution of $k$ as a $k[x,y,z]/(xy,yz)$-module.
+				</section>
+				<section> 
+					<b>Theorem</b>(Auslander-Buchsbaum-Serre). Suppose $R = k[x_1,\ldots,x_n]/(f_1,\ldots,f_s)$. 
+					Then $k$ has a finite resolution as an $R$-module if and only if there is a there is a non-vanshing minor 
+					of size $\operatorname{codim} R$ in the matrix $(\partial f_i/\partial x_j)$. 
+				</section>
+				<section> 
+					So, for singular $R$, there is no finite amount of linear algebra data that builds 
+					an $R$-module $M$ from $R$ in general. 
+				</section>
+				<section> 
+					When $p = 0$ in our field $k$, there is a magic map: the Frobenius map. 
+					$$
+					x \mapsto x^p
+					$$
+				</section> 
+				<section>
+					For example, 
+					$$
+					(x+y)^p = x^p + \sum \binom{p}{j} x^jy^{p-j} + y^p \\ 
+					= x^p + y^p
+					$$
+				</section> 
+				<section> 
+					In characteristic $p$, given a $k$-vector space $V$, we get a new one $V^{(p)}$ by declaring that 
+					$$
+					a \cdot v := a^p v 
+					$$
+					This is not the same in general. 
+				</section>
+				<section> 
+					Pull back out the field $\mathbb{F}_p(x)$ from the start. Note that 
+					$$
+					\mathbb{F}_p(x)^{(p)} \not \cong \mathbb{F}_p(x)
+					$$
+				</section>
+				<section>
+					<p> Two natural questions: 
+					<ol>
+						<li> For what $ X $ does $ F_\ast^e \mathcal O_X $ generate? </li>
+						<li> Does $ F_\ast^e \operatorname{perf} X $ generate? </li>
+					</ol>
+					</p>
+				</section>
+				<section>
+					<p> Regarding Question 1, we have a guess. 
+					</p>
+					<p><b>Conjecture</b>: For $ X $ smooth and projective, $F_\ast^e \mathcal O_X $ 
+					generates if and only if $ D^b(\operatorname{coh} X) $ possesses a full 
+					exceptional collection.
+					</p>
+				</section>
+				<section>
+					<p> Question 2 has an answer. 
+					</p>
+					<p><b>Theorem</b>: (MRB-Lank) For $ e \gg 0 $, $ F_\ast^e \operatorname{perf} X $ 
+					generates $D^b(\operatorname{coh} X) $. 
+					</p>
+				</section>
+				<section>
+					<p> This has the marvelous by-product that $ F_\ast^e $ converts weak generators into 
+					strong ones. <br> 
+
+					If $ X $ is not regular, then any perfect generator $ G $ takes an unbounded number of 
+					cones to generate all of $ \operatorname{perf} X $.  <br>
+
+					However, $ F_\ast^e G $ will only need a uniformly bounded number of cones to generate
+					$ D^b(\operatorname{coh} X )$. 
+					</p>
+				</section>
+				<section>
+					<p><b>Corollary</b>: If $ \mathcal L $ is a very ample line bundle on $ X $, then 
+					\[
+					\bigoplus_{i=0}^{\dim X} F_\ast^e \mathcal L^i
+					\]
+					is a strong generator for $ D^b(\operatorname{coh} X )$. 
+					</p>
+				</section>
+				<section>
+					<p>Relations to other works: 
+					<ul>
+						<li>One can find generators of $D^b(\operatorname{coh} X) $ pretty generally:
+						Rouquier, Iyengar-Takahashi, Neeman,... but not as constructively.</li>
+						<li> Independently Iyengar-Pollitz-Mukhopadhyay recently announced the affine case. 
+						They also say that you can take $e =1 $ for complete intersections. </li>
+					</ul>
+					</p>
+				</section>
+				</section>
+				<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
+					<p> AMS Mathematical Research Community <br> 
+					<a href="https://www.ams.org/programs/research-communities/2023MRC-DerivedCategories"> 
+						Derived Categories, Arithmetic, and Geometry</a> <br>
+					June 4-10 2023
+					</p>
+				</section>
+				<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
+					<h4 style="color:black"> Organizers </h4>
+					<a href="http://mattrobball.com">
+						<img src="https://www.matthewrobertballard.com/assets/img/prof_pic.jpg" 
+						     style="height:200px"></a>
+					<a href="https://www.sfu.ca/~khonigs/">
+						<img src="https://www.sfu.ca/content/sfu/math/people/faculty/khonigs.img.-838256229.png"
+						     style="height:200px"></a>
+					<a href="http://dkrashen.org">
+						<img src="https://github.com/dkrashen/dkrashen.github.io/blob/master/images/maxpicofme.jpg?raw=true" 
+							  style="height:200px" ></a>
+					<a href="http://alicialamarche.com">
+						<img src="http://alicialamarche.com/assets/img/face.JPG" style="height:200px"></a>
+					<a href="https://www.imo.universite-paris-saclay.fr/~macri">
+						<img src="https://www.imo.universite-paris-saclay.fr/~macri/emolo.jpg" 
+						     style="height:200px"></a>
+					<br>
+					<h4> Mentors </h4>
+					<a href="http://pbelmans.ncag.info">
+						<img src="https://pbelmans.ncag.info/assets/photo.jpg" style="height:200px"></a>
+					<a href="<http://www-personal.umich.edu/~arper/"> 
+						<img src="http://www-personal.umich.edu/~arper/arp.jpg" style="height:200px"></a>
+					<a href="http://www.mat.unimi.it/users/pertusi/">
+						<img src="assets/images/pertusi.jpg" style="height:200px"></a>
+					<a href="https://pcwww.liv.ac.uk/~arizzard/">
+						<img src="https://www.liverpool.ac.uk/media/livacuk/maths/images/staffimages/rizzardo.jpg" style="height:200px"></a>
+					<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Question-mark-face.jpg/512px-Question-mark-face.jpg"  -->
+					<!--      style="height:200px"> -->
+				</section>
+				<section data-background-image="assets/images/Dock_with_Trees_0.jpg">
+					<p> Applications are open!!</a>
+				</section>
 
 			</div>
 		</div>
